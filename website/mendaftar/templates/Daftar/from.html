@@ -1,0 +1,27 @@
+{% extends "cpns/header.html"%}
+<html>
+<body>
+  {% for event in object_list %}
+  <div class="col-md-12">
+    <h1>Ikut Acara - {{ event.title }}</h1>
+    <hr />
+    <div class="well">
+      <form role="form" action="/event/join/process" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="formInput">Nama</label>
+          <input type="text" class="form-control" id="formInput" name="name" placeholder="Isi dengan nama..">
+        </div>
+        <div class="form-group">
+          <label for="formInput">Email</label>
+          <input type="email" class="form-control" id="formInput" name="email" placeholder="Isi dengan e-maill..">
+        </div>
+        <div class="form-group">
+          <label for="formInput">Telepon</label>
+          <input type="text" class="form-control" id="formInput" name="phone" placeholder="Isi dengan nomor telepon..">
+        </div>
+        <div class="form-group">
+          <a href="/event/{{event.id}}" class="btn btn-default">Batal</a>
+          <input type="submit" value="Daftarkan !" class="btn btn-default" />
+{% endfor %}
+</html>

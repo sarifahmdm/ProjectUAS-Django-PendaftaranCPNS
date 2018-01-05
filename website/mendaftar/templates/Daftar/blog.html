@@ -1,0 +1,10 @@
+{% extends "cpns/header.html"%}
+
+{% block content %}
+
+  {% for Event in object_list %}
+    <h5>{{Event.date|date:"Y-m-d"}}<a href=
+      "Daftar/{{Event.id}}"> {{Event.title}}<a/></h5>
+
+  {% endfor %}
+{% endblock %}
